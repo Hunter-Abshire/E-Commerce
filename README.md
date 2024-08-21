@@ -13,16 +13,24 @@ Technologies Used:
 
 Frontend:
 
+Vite: Build tool to create a quick and easy React project. Offers compatibility with JS and TS and is framework-agnostic, doesn't have to React. This is an alternative to create-react-app which is becoming less popular.
 React: A JavaScript library for building the user interface, providing a responsive and dynamic experience.
 Redux: For state management, helping manage the application state across different components.
 Bootstrap or Material-UI: For styling and responsive design, ensuring a polished and user-friendly interface.
+
 Backend:
 
+Axios: Sends GET requests for authentication to test Express
 Node.js: JavaScript runtime used to build the server-side application, handling business logic and API requests.
 Express.js: A web framework for Node.js that simplifies the creation of server-side routes and middleware.
 PostgreSQL: A powerful, open-source relational database used for storing product information, user data, and order details.
 JWT (JSON Web Tokens): For secure user authentication and authorization.
 Docker:
+
+Testing:
+
+Nodemon: Restarts the server after changes are made to the code. Used as an alternative to "node" when running js file.
+Postman: Offers an easy to use interface for testing API GET requests, I primarily used with authentication requests.
 
 Docker: Used to containerize the application, ensuring consistency across development, testing, and production environments.
 Deployment:

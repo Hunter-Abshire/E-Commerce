@@ -1,0 +1,17 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "description": "E-Commerce Platform\r Description:\r The E-Commerce Platform is a fully-featured online shopping application designed to provide a seamless and engaging shopping experience for users. It allows customers to browse products, add items to their cart, and complete purchases. The platform supports user authentication, order management, and integrates with various payment gateways for secure transactions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.4",
+    "express": "^4.19.2",
+    "express-basic-auth": "^1.2.1"
+  }
+}
