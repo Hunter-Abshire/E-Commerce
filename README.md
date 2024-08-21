@@ -20,7 +20,7 @@ Backend:
 
 Node.js: JavaScript runtime used to build the server-side application, handling business logic and API requests.
 Express.js: A web framework for Node.js that simplifies the creation of server-side routes and middleware.
-MongoDB: A NoSQL database used for storing product information, user data, and order details.
+PostgreSQL: A NoSQL database used for storing product information, user data, and order details.
 JWT (JSON Web Tokens): For secure user authentication and authorization.
 Docker:
 
