@@ -13,16 +13,15 @@ Technologies Used:
 
 Frontend:
 
-Vite: Build tool to create a quick and easy React project. Offers compatibility with JS and TS and is framework-agnostic, doesn't have to React. This is an alternative to create-react-app which is becoming less popular.
+Vite: Build tool to create a quick and easy React project. Offers compatibility with JS and TS and is framework-agnostic, doesn't have to be React. This is an alternative to create-react-app which is becoming less popular. Serves the front-end and acts as a proxy to the backend.
 React: A JavaScript library for building the user interface, providing a responsive and dynamic experience.
 Redux: For state management, helping manage the application state across different components.
 Bootstrap or Material-UI: For styling and responsive design, ensuring a polished and user-friendly interface.
 
 Backend:
 
-Axios: Sends GET requests for authentication to test Express
 Node.js: JavaScript runtime used to build the server-side application, handling business logic and API requests.
-Express.js: A web framework for Node.js that simplifies the creation of server-side routes and middleware.
+Express.js: A web framework for Node.js that simplifies the creation of server-side routes and middleware. Express handles the backend logic.
 PostgreSQL: A powerful, open-source relational database used for storing product information, user data, and order details.
 JWT (JSON Web Tokens): For secure user authentication and authorization.
 Docker:
@@ -30,7 +29,8 @@ Docker:
 Testing:
 
 Nodemon: Restarts the server after changes are made to the code. Used as an alternative to "node" when running js file.
-Postman: Offers an easy to use interface for testing API GET requests, I primarily used with authentication requests.
+Axios: Sends GET requests for authentication to test Express.
+Postman: Offers an easy to use interface for testing API GET requests, I primarily used with authentication requests. An alternative to Axios that's easier to use.
 
 Docker: Used to containerize the application, ensuring consistency across development, testing, and production environments.
 Deployment:
@@ -45,3 +45,5 @@ Nginx: Used as a reverse proxy and load balancer to distribute incoming traffic 
 Redis: Optional, used for caching frequently accessed data to improve response times.
 Summary:
 The E-Commerce Platform is built to deliver a scalable, maintainable, and high-performance online shopping experience. By leveraging modern technologies like React for the frontend and Node.js for the backend, along with Docker for containerization and ECS for deployment, the project ensures reliability and ease of management.
+
+Need to work on next: Making the form appear instead of having a blank screen.
