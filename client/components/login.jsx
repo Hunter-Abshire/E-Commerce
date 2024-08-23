@@ -16,24 +16,26 @@ function Login() {
     alert("please provide a valid input");
   };
   return (
-
-    <form onSubmit={handleSubmit}>
-      <label>Username: </label>
-      <br />
-      <input
-        type="text"
-        onChange={(e) => setInput({ ...input, username: e.target.value })}
-      />
-      <br />
-      <label>Password: </label>
-      <br />
-      <input
-        type="password"
-        onChange={(e) => setInput({ ...input, password: e.target.value })}
-      />
-      <br />
-      <button type="submit">Login</button>
-    </form>
+      <div>
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+        <label>Username: </label>
+        <br />
+        <input
+            type="text"
+            onChange={(e) => setInput({ ...input, username: e.target.value })}
+        />
+        <br />
+        <label>Password: </label>
+        <br />
+        <input
+            type="password"
+            onChange={(e) => setInput({ ...input, password: e.target.value })}
+        />
+        <br />
+        <button type="submit">Login</button>
+            </form>
+    </div>
   );
 }
 
