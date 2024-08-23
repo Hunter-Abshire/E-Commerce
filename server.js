@@ -3,8 +3,35 @@ const basicAuth = require('express-basic-auth');
 const path = require('path');
 const app = express();
 const cookieParser = require('cookie-parser');
+const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 5000;
+
+const userSchema = new mongoose.Schema({
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+  });
+  
+  const User = mongoose.model('User', userSchema);
+const password = encodeURIComponent('HA101702');
+  
+const url = `mongodb+srv://hunterabshire17:${password}@cluster0.vl5oa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Connected to MongoDB Atlas');
+      // do something with your database here
+    }
+  });
+
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log('Connected to MongoDB Atlas'))
+    .catch(err => console.log(err));
+
 
 const auth = basicAuth({
     users: {
@@ -12,6 +39,8 @@ const auth = basicAuth({
         'user': '456',
     },
 });
+
+app.use(express.json());
 
 app.use(cookieParser('82e4e438a0705fabf61f9854e3b575af'));
 
@@ -46,7 +75,7 @@ app.get('/api/read-cookie', (req, res) => {
     }
   });
   
-  app.get('/clear-cookie', (req, res) => {
+  app.get('/api/clear-cookie', (req, res) => {
     res.clearCookie('name').end();
   });
 
@@ -57,5 +86,46 @@ app.get('/api/read-cookie', (req, res) => {
       res.send('This is user data');
     } else {
       res.end();
+    }
+  });
+
+  app.post('/api/users', async (req, res) => {
+    const { username, password} = req.body;
+    try {
+      const user = new User({ username, password});
+      await user.save();
+      res.status(201).send(user);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  });
+
+  app.get('/api/users', async (req, res) => {
+    try {
+      const users = await User.find();
+      res.send(users);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
+
+  app.put('/api/users/:id', async (req, res) => {
+    const { id } = req.params;
+    const { username, password} = req.body;
+    try {
+      const user = await User.findByIdAndUpdate(id, { username, password}, { new: true });
+      res.send(user);
+    } catch (err) {
+      res.status(400).send(err);
+    }
+  });
+
+  app.delete('/api/users/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      await User.findByIdAndDelete(id);
+      res.status(204).send();
+    } catch (err) {
+      res.status(500).send(err);
     }
   });

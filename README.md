@@ -11,6 +11,8 @@ Order Management: Users can view their order history and track the status of the
 Payment Integration: Integration with payment gateways for processing transactions securely.
 Technologies Used:
 
+Utilizes the MERN stack.
+
 Frontend:
 
 Vite: Build tool to create a quick and easy React project. Offers compatibility with JS and TS and is framework-agnostic, doesn't have to be React. This is an alternative to create-react-app which is becoming less popular. Serves the front-end and acts as a proxy to the backend.
@@ -20,6 +22,8 @@ Bootstrap or Material-UI: For styling and responsive design, ensuring a polished
 
 Backend:
 
+MongoDB: Database to store users information
+Mongoose: An Object Data Modeling library for MongoDB and Node.js to make it easier to work with MongoDB.
 Node.js: JavaScript runtime used to build the server-side application, handling business logic and API requests.
 Express.js: A web framework for Node.js that simplifies the creation of server-side routes and middleware. Express handles the backend logic.
 PostgreSQL: A powerful, open-source relational database used for storing product information, user data, and order details.
